@@ -58,15 +58,20 @@ ol {
   justify-content: space-between;
   align-items: center;
   width: 1140px;
-  max-height: 456px;
+  height: 534px;
   gap: 30px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  padding-top: 78px;
 }
 
 .result__video-container {
   width: 710px;
   height: 386px;
   margin-bottom: 16px;
-  overflow: hidden;
 }
 
 .result__video {
@@ -80,7 +85,7 @@ ol {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 100%;
+  min-height: 0;
   width: 400px;
   gap: 26px;
 }
@@ -100,12 +105,12 @@ ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 40px;
 }
 
 .search-form__fieldset-title {
   font-size: 18px;
   font-weight: 400;
-  margin-bottom: 5px;
 }
 
 .content__list-container {
@@ -113,7 +118,7 @@ ol {
   flex-direction: column;
   gap: 30px;
   height: 298px;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 .content__list {
@@ -122,9 +127,13 @@ ol {
   gap: 30px;
 }
 
+.content__list-item {
+  padding: 0 3px;
+}
+
 .content__video-card {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; 
 }
 
 .content__video-card-thumbnail {
@@ -137,11 +146,166 @@ ol {
 
 .content__video-card-description-container {
   flex-grow: 1;
+  min-width: 0;
 }
 
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: #fff;
 }
 
+.content__video-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
+.content__video-card-description {
+  height: 65px;
+  width: 196px;
+  line-height: 16.2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  gap: 5px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.search-form__textfield {
+  color: #fff;
+  font-size: 18px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  border-top: 1px solid rgba(255, 255, 255, 1);
+  background-color: transparent;
+  appearance: none;
+}
+
+.search-form__textfield::placeholder{
+  color: rgb(255 255 255 / 0.7);
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  padding: 2px;
+  outline: 1px solid rgba(255, 255, 255, 1);
+}
+
+.search-form__pseudo-checkbox {
+  height: 19px;
+  width: 19px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  padding: 1px;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
+.button {
+  display: inline-block;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 0;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.search-form__submit-button {
+  align-self: flex-end;
+  width: 100%;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: rgba(84, 80, 80, 1);
+  text-decoration: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 1);
+  outline-offset: 2px;
+}
+
+.content__video-card:active {
+  background-color: rgba(84, 80, 80, 1);
+}
+
+.content__video-card:hover {
+  text-decoration: underline;
+}
+
+.content__card-link_current:focus {
+  outline: 0;
+}
+
+.content__card-link_current:has(:focus-visible) {
+  outline: 1px solid rgba(255, 255, 255, 1);
+}
+
+.content__card-link_current {
+  background-color: rgba(27, 25, 25, 1);
+}
+
+.result__video-container,
+.content__list-container {
+  position: relative;
+}
